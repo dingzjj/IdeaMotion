@@ -23,6 +23,8 @@ class VideoGenerationAgent(BaseAgent):
         self,
         concept: str,
         revision_instructions: Optional[str] = None,
+        suggestion: Optional[str] = None,
+        existing_storyboard: Optional[Storyboard] = None,
         dry_run: bool = False,
         output_path: Optional[Path] = None,
         iteration: int = 1,
@@ -37,10 +39,21 @@ class VideoGenerationAgent(BaseAgent):
                 "output_path": Path | None,  # None if dry_run=True
             }
         """
-        self.log(f"Iteration {iteration} — {'revising' if revision_instructions else 'generating'} storyboard")
+        if suggestion and existing_storyboard:
+            mode = f"refining with suggestion: {suggestion!r}"
+        elif revision_instructions:
+            mode = "revising (auto-review feedback)"
+        else:
+            mode = "generating"
+        self.log(f"Iteration {iteration} — {mode}")
 
         # ── 1. Generate storyboard ────────────────────────────────────────────
-        storyboard = generate_storyboard(concept, revision_instructions)
+        storyboard = generate_storyboard(
+            concept,
+            revision_instructions=revision_instructions,
+            suggestion=suggestion,
+            existing_storyboard=existing_storyboard,
+        )
         self.log(f"Storyboard: '{storyboard.title}' — {len(storyboard.scenes)} scenes, "
                  f"{storyboard.total_duration_seconds:.0f}s")
 

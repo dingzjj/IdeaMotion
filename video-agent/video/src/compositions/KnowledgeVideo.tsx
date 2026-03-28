@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import {
-  Sequence,
   delayRender,
   continueRender,
   staticFile,
   useVideoConfig,
 } from "remotion";
+import { TransitionSeries, linearTiming } from "@remotion/transitions";
+import { fade } from "@remotion/transitions/fade";
 import { Storyboard, Scene } from "../types";
 import { TitleScene } from "../scenes/TitleScene";
 import { BulletScene } from "../scenes/BulletScene";
@@ -15,6 +16,9 @@ import { DiagramScene } from "../scenes/DiagramScene";
 import { StepScene } from "../scenes/StepScene";
 import { OutroScene } from "../scenes/OutroScene";
 import { secToFrames } from "../utils/timing";
+
+// Duration of the cross-fade transition between scenes (frames)
+export const TRANSITION_FRAMES = 15;
 
 // ── Scene router ──────────────────────────────────────────
 function SceneRouter({ scene, theme }: { scene: Scene; theme: Storyboard["theme"] }) {
@@ -54,31 +58,29 @@ export const KnowledgeVideo: React.FC = () => {
   }
 
   const { scenes, theme } = storyboard;
-
-  // Build cumulative start frames
-  let offset = 0;
-  const sequencedScenes = scenes.map((scene) => {
-    const from = offset;
-    const durationInFrames = secToFrames(scene.duration_seconds, fps);
-    offset += durationInFrames;
-    return { scene, from, durationInFrames };
-  });
+  const transitionTiming = linearTiming({ durationInFrames: TRANSITION_FRAMES });
 
   return (
-    <>
-      {sequencedScenes.map(({ scene, from, durationInFrames }) => (
-        <Sequence
-          key={scene.id}
-          from={from}
-          durationInFrames={durationInFrames}
-          name={`${scene.id} [${scene.type}]`}
-        >
-          {/* Full-frame container */}
-          <div style={{ position: "absolute", inset: 0 }}>
+    <TransitionSeries>
+      {scenes.map((scene, i) => (
+        <React.Fragment key={scene.id}>
+          <TransitionSeries.Sequence
+            durationInFrames={secToFrames(scene.duration_seconds, fps)}
+            name={`${scene.id} [${scene.type}]`}
+            premountFor={TRANSITION_FRAMES}
+          >
             <SceneRouter scene={scene} theme={theme} />
-          </div>
-        </Sequence>
+          </TransitionSeries.Sequence>
+
+          {/* Fade transition between every pair of scenes */}
+          {i < scenes.length - 1 && (
+            <TransitionSeries.Transition
+              presentation={fade()}
+              timing={transitionTiming}
+            />
+          )}
+        </React.Fragment>
       ))}
-    </>
+    </TransitionSeries>
   );
 };

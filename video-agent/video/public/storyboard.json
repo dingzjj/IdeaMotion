@@ -1,5 +1,5 @@
 {
-  "title": "量子纠缠的原理",
+  "title": "量子计算入门：从0到1",
   "total_duration_seconds": 57.0,
   "fps": 30,
   "resolution": {
@@ -7,8 +7,8 @@
     "height": 1080
   },
   "theme": {
-    "primary_color": "#3A86FF",
-    "accent_color": "#FF6B35",
+    "primary_color": "#4ECDC4",
+    "accent_color": "#A855F7",
     "background_color": "#0A0F1E",
     "font_family": "Inter",
     "text_color": "#FFFFFF"
@@ -19,10 +19,10 @@
       "type": "title",
       "duration_seconds": 4.0,
       "animation": "fade_zoom_in",
-      "image_query": "quantum particles abstract visualization",
-      "asset_path": "assets/scene_0_quantum_particles_abstract_vis.jpg",
-      "title": "量子纠缠的原理",
-      "subtitle": "两个粒子，为什么能跨越宇宙瞬间“同步”？",
+      "image_query": "quantum computer laboratory",
+      "asset_path": "assets/scene_0_quantum_computer_laboratory.jpg",
+      "title": "量子计算入门",
+      "subtitle": "如果计算不再只是0和1，会发生什么？",
       "heading": null,
       "body": null,
       "bullets": null,
@@ -41,12 +41,12 @@
       "asset_path": null,
       "title": null,
       "subtitle": null,
-      "heading": "什么是量子纠缠？",
+      "heading": "量子计算是什么？",
       "body": null,
       "bullets": [
-        "两个或多个粒子的状态被整体描述，无法独立分开",
-        "测量其中一个粒子，立刻确定另一个的状态",
-        "这种关联与距离无关，看似“瞬时发生”"
+        "利用量子力学原理进行计算，而非传统电子开关",
+        "基本单位是量子比特，可同时表示多种状态",
+        "目标是解决经典计算极慢的问题"
       ],
       "caption": null,
       "message": null,
@@ -59,12 +59,12 @@
       "type": "split",
       "duration_seconds": 10.0,
       "animation": "slide_in_from_left",
-      "image_query": "pair of gloves analogy illustration",
-      "asset_path": "assets/scene_2_pair_of_gloves_analogy_illustr.jpg",
+      "image_query": "coin spinning in air",
+      "asset_path": "assets/scene_2_coin_spinning_in_air.jpg",
       "title": null,
       "subtitle": null,
-      "heading": "直观理解",
-      "body": "想象一双手套被分装进两个盒子。你打开一个发现是左手套，就立刻知道另一个是右手套。量子纠缠类似，但不同之处在于：在打开之前，手套的“左右”并未被确定。",
+      "heading": "量子比特的直觉理解",
+      "body": "传统比特像桌上的硬币，只能是正面或反面。量子比特更像空中旋转的硬币，同时包含多种可能。只有当你看它时，状态才会确定，这让并行计算成为可能。",
       "bullets": null,
       "caption": null,
       "message": null,
@@ -81,7 +81,7 @@
       "asset_path": null,
       "title": null,
       "subtitle": null,
-      "heading": "纠缠是如何产生的",
+      "heading": "量子计算的核心关系",
       "body": null,
       "bullets": null,
       "caption": null,
@@ -89,19 +89,19 @@
       "nodes": [
         {
           "id": "a",
-          "label": "共同产生的粒子",
+          "label": "量子比特",
           "x": 0.15,
           "y": 0.5
         },
         {
           "id": "b",
-          "label": "共享量子状态",
+          "label": "量子叠加与纠缠",
           "x": 0.5,
           "y": 0.3
         },
         {
           "id": "c",
-          "label": "远距离分离",
+          "label": "指数级计算能力",
           "x": 0.85,
           "y": 0.5
         }
@@ -110,12 +110,12 @@
         {
           "from": "a",
           "to": "b",
-          "label": "形成"
+          "label": "产生"
         },
         {
           "from": "b",
           "to": "c",
-          "label": "保持关联"
+          "label": "带来"
         }
       ],
       "steps": null
@@ -125,14 +125,14 @@
       "type": "image",
       "duration_seconds": 5.0,
       "animation": "ken_burns",
-      "image_query": "quantum entanglement experiment photons",
-      "asset_path": "assets/scene_4_quantum_entanglement_experimen.jpg",
+      "image_query": "quantum entanglement visualization",
+      "asset_path": "assets/scene_4_quantum_entanglement_visualiza.jpg",
       "title": null,
       "subtitle": null,
       "heading": null,
       "body": null,
       "bullets": null,
-      "caption": "实验已证实：纠缠粒子即使相距上百公里，关联依然存在。",
+      "caption": "纠缠的量子比特即使相隔很远，也能表现出强关联。",
       "message": null,
       "nodes": null,
       "edges": null,
@@ -147,7 +147,7 @@
       "asset_path": null,
       "title": null,
       "subtitle": null,
-      "heading": "测量时发生了什么",
+      "heading": "量子计算如何运行",
       "body": null,
       "bullets": null,
       "caption": null,
@@ -157,18 +157,18 @@
       "steps": [
         {
           "number": 1,
-          "title": "处于叠加态",
-          "description": "在测量前，每个粒子同时具有多种可能状态。"
+          "title": "初始化",
+          "description": "将量子比特准备到已知的起始状态，作为计算起点。"
         },
         {
           "number": 2,
-          "title": "进行测量",
-          "description": "测量迫使系统选择一个确定结果。"
+          "title": "量子操作",
+          "description": "通过量子门操控叠加和纠缠，同时处理大量可能性。"
         },
         {
           "number": 3,
-          "title": "状态同步确定",
-          "description": "另一个粒子的状态被同时确定，体现纠缠关联。"
+          "title": "测量输出",
+          "description": "测量会坍缩状态，得到最终的经典计算结果。"
         }
       ]
     },
@@ -185,7 +185,7 @@
       "body": null,
       "bullets": null,
       "caption": null,
-      "message": "量子纠缠挑战了我们对空间和因果的直觉，也正是量子通信与量子计算的核心基础。",
+      "message": "量子计算不是更快的电脑，而是全新的计算方式。它可能重塑药物研发、密码学与材料科学。",
       "nodes": null,
       "edges": null,
       "steps": null

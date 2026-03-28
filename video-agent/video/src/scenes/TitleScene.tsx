@@ -1,5 +1,5 @@
 import React from "react";
-import { useCurrentFrame, useVideoConfig, interpolate, staticFile } from "remotion";
+import { useCurrentFrame, useVideoConfig, interpolate, staticFile, Img } from "remotion";
 import { Scene, Theme } from "../types";
 import { sp, SPRING_GENTLE, SPRING_SLOW } from "../utils/springs";
 
@@ -38,7 +38,7 @@ export const TitleScene: React.FC<Props> = ({ scene, theme }) => {
     >
       {/* Background image */}
       {bgSrc && (
-        <img
+        <Img
           src={bgSrc}
           style={{
             position: "absolute",

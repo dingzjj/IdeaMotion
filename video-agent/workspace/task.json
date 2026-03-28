@@ -1,0 +1,31 @@
+{
+  "current": "task_20260328_222753",
+  "tasks": {
+    "task_20260328_222753": {
+      "id": "task_20260328_222753",
+      "concept": "量子计算入门",
+      "created_at": "2026-03-28T22:27:53",
+      "updated_at": "2026-03-28T22:30:29",
+      "stages": {
+        "script": {
+          "status": "completed",
+          "completed_at": "2026-03-28T22:28:18",
+          "approved": true,
+          "iterations": 1,
+          "score": 8.32,
+          "scenes": 7
+        },
+        "voiceover": {
+          "status": "completed",
+          "completed_at": "2026-03-28T22:28:35",
+          "scenes_synthesized": 7
+        },
+        "video": {
+          "status": "completed",
+          "completed_at": "2026-03-28T22:30:29",
+          "audio_merged": true
+        }
+      }
+    }
+  }
+}

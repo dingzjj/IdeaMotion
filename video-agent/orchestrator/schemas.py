@@ -104,6 +104,17 @@ class Storyboard(BaseModel):
         return round(self.total_duration_seconds * self.fps)
 
 
+# ── Voiceover models ──────────────────────────────────────────────────────────
+
+class SceneNarration(BaseModel):
+    scene_id: str
+    text: str  # narration text to be read aloud for this scene
+
+class VoiceoverScript(BaseModel):
+    scenes: list[SceneNarration]
+    language: str = "zh-CN"  # BCP-47 tag used to pick TTS voice
+
+
 # ── Review models ─────────────────────────────────────────────────────────────
 
 class DimensionScores(BaseModel):

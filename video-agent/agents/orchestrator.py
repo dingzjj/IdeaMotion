@@ -1,6 +1,7 @@
 """OrchestratorAgent — coordinates generation → review → revise loop."""
 
 from __future__ import annotations
+import json
 from pathlib import Path
 from typing import Optional
 
@@ -8,6 +9,19 @@ from .base import BaseAgent
 from .generation_agent import VideoGenerationAgent
 from .review_agent import VideoReviewAgent
 from orchestrator.schemas import Storyboard, StoryboardReview
+
+_STORYBOARD_PATH = Path(__file__).parent.parent / "video" / "public" / "storyboard.json"
+
+
+def _load_existing_storyboard() -> Optional[Storyboard]:
+    """Load the most recently generated storyboard, if any."""
+    if not _STORYBOARD_PATH.exists():
+        return None
+    try:
+        data = json.loads(_STORYBOARD_PATH.read_text(encoding="utf-8"))
+        return Storyboard.model_validate(data)
+    except Exception:
+        return None
 
 
 class OrchestratorAgent(BaseAgent):
@@ -20,6 +34,7 @@ class OrchestratorAgent(BaseAgent):
         dry_run: bool = False,
         output_path: Optional[Path] = None,
         max_iterations: int = MAX_ITERATIONS,
+        suggestion: Optional[str] = None,
     ) -> dict:
         """
         Run the full generate → review → revise loop.
@@ -43,8 +58,17 @@ class OrchestratorAgent(BaseAgent):
         last_review: Optional[StoryboardReview] = None
         storyboard_path: Optional[Path] = None
 
+        # In suggestion mode, seed the first iteration with the existing storyboard
+        existing_storyboard: Optional[Storyboard] = None
+        if suggestion:
+            existing_storyboard = _load_existing_storyboard()
+            if existing_storyboard is None:
+                self.log("⚠️  No existing storyboard found — generating from scratch with suggestion as context")
+
         self.log(f"Starting pipeline — max {max_iterations} iteration(s)")
         self.log(f"Concept: {concept!r}")
+        if suggestion:
+            self.log(f"Suggestion: {suggestion!r}")
         print()
 
         for iteration in range(1, max_iterations + 1):
@@ -53,9 +77,13 @@ class OrchestratorAgent(BaseAgent):
             print(f"{'─'*60}")
 
             # ── Generate ──────────────────────────────────────────────────────
+            # suggestion + existing_storyboard only apply on the first iteration;
+            # subsequent iterations are driven by auto-review revision_instructions.
             gen_result = generator.run(
                 concept=concept,
                 revision_instructions=revision_instructions,
+                suggestion=suggestion if iteration == 1 else None,
+                existing_storyboard=existing_storyboard if iteration == 1 else None,
                 dry_run=True,           # never render during the review loop
                 output_path=None,
                 iteration=iteration,

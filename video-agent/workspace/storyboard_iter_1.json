@@ -1,13 +1,13 @@
 {
-  "title": "量子纠缠的原理",
-  "total_duration_seconds": 57.0,
+  "title": "大脑是如何学习的",
+  "total_duration_seconds": 67.0,
   "fps": 30,
   "resolution": {
     "width": 1920,
     "height": 1080
   },
   "theme": {
-    "primary_color": "#3A86FF",
+    "primary_color": "#4ECDC4",
     "accent_color": "#FF6B35",
     "background_color": "#0A0F1E",
     "font_family": "Inter",
@@ -19,10 +19,10 @@
       "type": "title",
       "duration_seconds": 4.0,
       "animation": "fade_zoom_in",
-      "image_query": "quantum particles abstract visualization",
-      "asset_path": "assets/scene_0_quantum_particles_abstract_vis.jpg",
-      "title": "量子纠缠的原理",
-      "subtitle": "两个粒子，为什么能跨越宇宙瞬间“同步”？",
+      "image_query": "human brain glowing neural network",
+      "asset_path": "assets/scene_0_human_brain_glowing_neural_net.jpg",
+      "title": "大脑是如何学习的？",
+      "subtitle": "为什么重复、睡眠和犯错，反而能让你学得更快？",
       "heading": null,
       "body": null,
       "bullets": null,
@@ -41,12 +41,12 @@
       "asset_path": null,
       "title": null,
       "subtitle": null,
-      "heading": "什么是量子纠缠？",
+      "heading": "什么是学习",
       "body": null,
       "bullets": [
-        "两个或多个粒子的状态被整体描述，无法独立分开",
-        "测量其中一个粒子，立刻确定另一个的状态",
-        "这种关联与距离无关，看似“瞬时发生”"
+        "学习是大脑中神经元连接发生改变的过程",
+        "不是存信息，而是重塑神经回路的强度",
+        "每一次练习都会让相关通路更容易被激活"
       ],
       "caption": null,
       "message": null,
@@ -59,12 +59,12 @@
       "type": "split",
       "duration_seconds": 10.0,
       "animation": "slide_in_from_left",
-      "image_query": "pair of gloves analogy illustration",
-      "asset_path": "assets/scene_2_pair_of_gloves_analogy_illustr.jpg",
+      "image_query": "neurons synapse connection illustration",
+      "asset_path": "assets/scene_2_neurons_synapse_connection_ill.jpg",
       "title": null,
       "subtitle": null,
-      "heading": "直观理解",
-      "body": "想象一双手套被分装进两个盒子。你打开一个发现是左手套，就立刻知道另一个是右手套。量子纠缠类似，但不同之处在于：在打开之前，手套的“左右”并未被确定。",
+      "heading": "神经连接如何改变",
+      "body": "大脑由数百亿神经元组成，它们通过突触相连。学习时，常一起激活的神经元会连得更紧。就像常走的小路会被踩成大道，用得越多，越顺畅。",
       "bullets": null,
       "caption": null,
       "message": null,
@@ -81,7 +81,7 @@
       "asset_path": null,
       "title": null,
       "subtitle": null,
-      "heading": "纠缠是如何产生的",
+      "heading": "学习的基本机制",
       "body": null,
       "bullets": null,
       "caption": null,
@@ -89,19 +89,19 @@
       "nodes": [
         {
           "id": "a",
-          "label": "共同产生的粒子",
+          "label": "新刺激或问题",
           "x": 0.15,
           "y": 0.5
         },
         {
           "id": "b",
-          "label": "共享量子状态",
+          "label": "神经元共同激活",
           "x": 0.5,
           "y": 0.3
         },
         {
           "id": "c",
-          "label": "远距离分离",
+          "label": "连接被强化",
           "x": 0.85,
           "y": 0.5
         }
@@ -110,36 +110,18 @@
         {
           "from": "a",
           "to": "b",
-          "label": "形成"
+          "label": "引发"
         },
         {
           "from": "b",
           "to": "c",
-          "label": "保持关联"
+          "label": "导致"
         }
       ],
       "steps": null
     },
     {
       "id": "scene_4",
-      "type": "image",
-      "duration_seconds": 5.0,
-      "animation": "ken_burns",
-      "image_query": "quantum entanglement experiment photons",
-      "asset_path": "assets/scene_4_quantum_entanglement_experimen.jpg",
-      "title": null,
-      "subtitle": null,
-      "heading": null,
-      "body": null,
-      "bullets": null,
-      "caption": "实验已证实：纠缠粒子即使相距上百公里，关联依然存在。",
-      "message": null,
-      "nodes": null,
-      "edges": null,
-      "steps": null
-    },
-    {
-      "id": "scene_5",
       "type": "step",
       "duration_seconds": 12.0,
       "animation": "slide_in_steps",
@@ -147,7 +129,7 @@
       "asset_path": null,
       "title": null,
       "subtitle": null,
-      "heading": "测量时发生了什么",
+      "heading": "一次有效学习的过程",
       "body": null,
       "bullets": null,
       "caption": null,
@@ -157,23 +139,63 @@
       "steps": [
         {
           "number": 1,
-          "title": "处于叠加态",
-          "description": "在测量前，每个粒子同时具有多种可能状态。"
+          "title": "注意",
+          "description": "注意力决定哪些信息能进入大脑处理阶段。"
         },
         {
           "number": 2,
-          "title": "进行测量",
-          "description": "测量迫使系统选择一个确定结果。"
+          "title": "练习与犯错",
+          "description": "尝试和错误会触发反馈，推动连接调整。"
         },
         {
           "number": 3,
-          "title": "状态同步确定",
-          "description": "另一个粒子的状态被同时确定，体现纠缠关联。"
+          "title": "巩固",
+          "description": "睡眠和休息会让新连接变得稳定。"
         }
       ]
     },
     {
+      "id": "scene_5",
+      "type": "image",
+      "duration_seconds": 5.0,
+      "animation": "ken_burns",
+      "image_query": "person sleeping brain activity illustration",
+      "asset_path": "assets/scene_5_person_sleeping_brain_activity.jpg",
+      "title": null,
+      "subtitle": null,
+      "heading": null,
+      "body": null,
+      "bullets": null,
+      "caption": "睡眠时，大脑会“重播”白天学过的内容，加固记忆。",
+      "message": null,
+      "nodes": null,
+      "edges": null,
+      "steps": null
+    },
+    {
       "id": "scene_6",
+      "type": "bullet",
+      "duration_seconds": 10.0,
+      "animation": "stagger_slide_up",
+      "image_query": null,
+      "asset_path": null,
+      "title": null,
+      "subtitle": null,
+      "heading": "为什么这很重要",
+      "body": null,
+      "bullets": [
+        "理解学习机制，能避免无效死记硬背",
+        "合理安排练习和休息，效率更高",
+        "这解释了为什么成长来自持续练习，而非天赋"
+      ],
+      "caption": null,
+      "message": null,
+      "nodes": null,
+      "edges": null,
+      "steps": null
+    },
+    {
+      "id": "scene_7",
       "type": "outro",
       "duration_seconds": 4.0,
       "animation": "fade_in_center",
@@ -185,7 +207,7 @@
       "body": null,
       "bullets": null,
       "caption": null,
-      "message": "量子纠缠挑战了我们对空间和因果的直觉，也正是量子通信与量子计算的核心基础。",
+      "message": "学习不是一蹴而就，而是连接一点点改变的结果。你今天，给大脑留下了哪些新路径？",
       "nodes": null,
       "edges": null,
       "steps": null

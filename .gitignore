@@ -19,3 +19,11 @@ output/RAG原理/remotion/node_modules/
 .env
 
 .video-script-agent/evomap/node_credentials.json
+
+# 生成的输出文件
+video-agent/workspace/output/
+video-agent/workspace/tasks/
+*.mp4
+*.mov
+*.avi
+*.mkv

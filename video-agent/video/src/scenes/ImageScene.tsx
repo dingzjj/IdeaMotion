@@ -1,5 +1,5 @@
 import React from "react";
-import { useCurrentFrame, useVideoConfig, interpolate, staticFile } from "remotion";
+import { useCurrentFrame, useVideoConfig, interpolate, staticFile, Img } from "remotion";
 import { Scene, Theme } from "../types";
 import { sp, SPRING_SLOW } from "../utils/springs";
 import { secToFrames } from "../utils/timing";
@@ -35,7 +35,7 @@ export const ImageScene: React.FC<Props> = ({ scene, theme }) => {
     >
       {/* Background with Ken Burns */}
       {bgSrc && (
-        <img
+        <Img
           src={bgSrc}
           style={{
             position: "absolute",
